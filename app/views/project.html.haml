@@ -1,0 +1,13 @@
+%h4
+  =model.name
+%h4
+  epics
+%table.table
+  %tbody
+    -epics.each do |epic,stories|
+      %tr
+        %td
+          %a{href: "/epic/#{epic.name}"}
+            =epic.name
+        %td
+          =stories.count

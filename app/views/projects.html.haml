@@ -1,0 +1,7 @@
+%table.table
+  %tbody
+  -models.each do |model|
+    %tr
+      %td
+        %a{href: "/project/#{model.name}"}
+          =model.name

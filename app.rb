@@ -7,6 +7,7 @@ require 'sinatra/cookies'
 require 'securerandom'
 require 'haml'
 require 'tracker_api'
+require 'byebug'
 
 class App < Sinatra::Application
   helpers Sinatra::UrlForHelper
@@ -19,7 +20,9 @@ class App < Sinatra::Application
 
   before do
     response.set_cookie(:appc, value: SecureRandom.uuid, expires: Time.now + 3600 * 24 * 365 * 10) if request.cookies["bmc"].nil?
-    @client=TrackerApi::Client.new(token: ENV['PIVOTAL_TOKEN'])
+    client=TrackerApi::Client.new(token: ENV['PIVOTAL_TOKEN'])
+    @@project ||= client.project(ENV['PIVOTAL_PROJECT_ID'])
+    @@stories ||= @@project.stories
   end
 end
 

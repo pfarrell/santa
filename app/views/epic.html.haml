@@ -1,0 +1,17 @@
+%h4
+  =model[:epic].name
+
+%table.table
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Current State
+  %tbody
+    -model[:stories].each do |story|
+      %tr
+        %td
+          =story.name
+        %td
+          =story.current_state
