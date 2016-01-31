@@ -21,10 +21,9 @@
         %a.navbar-brand{href:"#{url_for("/")}"}
           App
       .collapse.navbar-collapse#navbar-collapse
-        %ul.nav.navbar-nav
-          %li
-            %a{href: "#{url_for("/")}"}
-              Menu stuff goes here
+        -@breadcrumbs.each do |breadcrumb|
+          %a{href: breadcrumb.path}
+            =breadcrumb.display
     .container#content
       =yield
     .container.footer

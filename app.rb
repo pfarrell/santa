@@ -23,6 +23,7 @@ class App < Sinatra::Application
     client=TrackerApi::Client.new(token: ENV['PIVOTAL_TOKEN'])
     @@project ||= client.project(ENV['PIVOTAL_PROJECT_ID'])
     @@stories ||= @@project.stories
+    @breadcrumbs = [] if @breakcrumbs.nil?
   end
 end
 

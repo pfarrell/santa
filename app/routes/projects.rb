@@ -1,6 +1,5 @@
 class App < Sinatra::Application
   def epics(stories)
-    #byebug
     epic_labels = @@project.epics.map{|x| x.label.name}
     epics=Hash.new{|h,k| h[k] = []}
     stories.each do |story|
@@ -16,6 +15,7 @@ class App < Sinatra::Application
   end
 
   get '/project/:name' do
+    @breadcrumbs << Breadcrumb.new(path: "/project", display: "project")
     haml :project, locals: { model: @@project, epics: epics(@@stories) }
   end
 end

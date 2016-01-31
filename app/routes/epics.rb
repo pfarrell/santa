@@ -8,7 +8,10 @@ class App < Sinatra::Application
   end
 
   get '/epic/:name' do
-    haml :epic, locals: { model: epic(params[:name], @@stories) }
+    epic = epic(params[:name], @@stories)
+    @breadcrumbs << Breadcrumb.new(path: '/epic', display: 'epic')
+    @breadcrumbs << Breadcrumb.new(path: "/pic/#{epic[:epic].name}", display: "#{epic[:epic].name}")
+    haml :epic, locals: { model: epic }
   end
 
 end
