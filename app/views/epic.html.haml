@@ -15,3 +15,5 @@
           =story.name
         %td
           =story.current_state
+        %td
+          =story.owners.map(&:initials).join(',')
