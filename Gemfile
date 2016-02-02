@@ -12,6 +12,8 @@ gem 'tracker_api'
 
 gem 'haml'
 
+gem 'sidekiq'
+
 group :development do
   gem 'rspec'
   gem 'simplecov'
