@@ -8,6 +8,9 @@ require 'securerandom'
 require 'haml'
 require 'tracker_api'
 require 'byebug'
+require 'sidekiq'
+require 'sidekiq/api'
+require 'sidekiq/web'
 
 class App < Sinatra::Application
   helpers Sinatra::UrlForHelper
