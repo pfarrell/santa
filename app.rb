@@ -27,6 +27,7 @@ class App < Sinatra::Application
     @@project ||= client.project(ENV['PIVOTAL_PROJECT_ID'])
     @@stories ||= @@project.stories
     @breadcrumbs = [] if @breakcrumbs.nil?
+    @@epics ||= {}
   end
 end
 
