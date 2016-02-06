@@ -12,7 +12,7 @@ gem 'tracker_api'
 
 gem 'haml'
 
-gem 'sidekiq'
+gem 'whenever'
 
 group :development do
   gem 'rspec'
