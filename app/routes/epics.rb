@@ -19,6 +19,7 @@ class App < Sinatra::Application
   end
 
   get '/epic' do
+    byebug
     @breadcrumbs << Breadcrumb.new(path: "/epic", display: "epic")
     haml :project, locals: { model: @@project, epics: epics(@@stories) }
   end
