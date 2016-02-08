@@ -8,6 +8,7 @@ require 'securerandom'
 require 'haml'
 require 'tracker_api'
 require 'byebug'
+require 'rufus-scheduler'
 
 class App < Sinatra::Application
   helpers Sinatra::UrlForHelper
@@ -26,12 +27,18 @@ class App < Sinatra::Application
   def self.update_tracker
     puts 'refreshing started'
     client=TrackerApi::Client.new(token: ENV['PIVOTAL_TOKEN'])
-    @@project ||= client.project(ENV['PIVOTAL_PROJECT_ID'])
-    @@stories ||= @@project.stories
+    @@project = client.project(ENV['PIVOTAL_PROJECT_ID'])
+    @@stories = @@project.stories
     @@epics ||= {}
     puts 'refreshing complete'
   end
 end
+
+scheduler = Rufus::Scheduler.new
+scheduler.in '1m' do
+  App.update_tracker
+end
+#scheduler.join
 
 App.update_tracker
 require 'models'

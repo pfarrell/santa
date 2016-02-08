@@ -8,7 +8,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     backports (3.6.7)
     byebug (8.2.1)
-    chronic (0.10.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     declarative (0.0.5)
@@ -54,6 +53,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    rufus-scheduler (3.2.0)
     simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -89,8 +89,6 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    whenever (0.9.4)
-      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -101,12 +99,12 @@ DEPENDENCIES
   haml
   rake
   rspec
+  rufus-scheduler
   simplecov
   sinatra
   sinatra-contrib
   sinatra-respond_to
   tracker_api
-  whenever
 
 BUNDLED WITH
    1.11.2

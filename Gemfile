@@ -12,7 +12,7 @@ gem 'tracker_api'
 
 gem 'haml'
 
-gem 'whenever'
+gem 'rufus-scheduler'
 
 group :development do
   gem 'rspec'
